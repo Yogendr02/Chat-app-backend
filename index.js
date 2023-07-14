@@ -70,7 +70,7 @@ io.on("connection",(socket)=>{
         activeuser = activeuser.filter(fury)
     })
 })
-
-server.listen(3001,()=>{
+const PORT = process.env.PORT || 3001
+server.listen(PORT,()=>{
     console.log(`server connected to 3001`)
 })
