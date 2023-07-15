@@ -18,7 +18,7 @@ let active = {}
 
 const io = socketIO(server,{
     cors:{
-        origin:["http://127.0.0.1:5173"],
+        origin:["https://chat-frontend-yogendrakesharwani02-gmailcom.vercel.app"],
         methods:["GET","POST"]
         
     }
@@ -71,7 +71,7 @@ io.on("connection",(socket)=>{
         let indexof = notification.indexOf(data)
         notification.splice(indexof,1)
     })
-    setInterval(()=>{socket.emit("sendingnotification",notification)},5000)
+    setInterval(()=>{socket.emit("sendingnotification",notification)},3000)
      
     socket.on("send-message",async(data)=>{
         socket.to(data.id).emit("receive",data.message)
