@@ -42,7 +42,10 @@ const pro = async()=>{
 pro()
 
 let activeuser = []
+let notification = []
 io.on("connection",(socket)=>{
+    console.log(socket.id)
+    console.log("connected to socket")
     const y = socket.id
     let actives
     socket.on("checked",async(data)=>{
@@ -58,6 +61,18 @@ io.on("connection",(socket)=>{
         socket.emit("received",up)
     })
 
+    socket.on("notificationhandling",data=>{
+        notification.push(data)
+        console.log(data,"notificationhandling")
+        console.log(notification)
+    })
+
+    socket.on("removenotification",data=>{
+        let indexof = notification.indexOf(data)
+        notification.splice(indexof,1)
+    })
+    setInterval(()=>{socket.emit("sendingnotification",notification)},5000)
+     
     socket.on("send-message",async(data)=>{
         socket.to(data.id).emit("receive",data.message)
     })
