@@ -58,7 +58,7 @@ io.on("connection",(socket)=>{
     setInterval(()=>{socket.emit("getactives",activeuser)},3000)
     socket.on("getid",(data)=>{
         const up = active[data]
-        socket.emit("received",up)
+        socket.emit("receiveid",up)
     })
 
     socket.on("notificationhandling",data=>{
