@@ -18,9 +18,8 @@ let active = {}
 
 const io = socketIO(server,{
     cors:{
-        origin:["https://chat-frontend-yogendrakesharwani02-gmailcom.vercel.app"],
+        origin:"*",
         methods:["GET","POST"]
-        
     }
 });
 
@@ -49,6 +48,7 @@ io.on("connection",(socket)=>{
     const y = socket.id
     let actives
     socket.on("checked",async(data)=>{
+        console.log("worked")
         active = {...active,[data]:y}
         actives = data
         localStorage.setItem("loginusername",data)

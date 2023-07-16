@@ -1,7 +1,6 @@
 const {usermodel} = require("../Models/user") 
 
 const userpost = async(req,res)=>{
-    console.log(req.body)
     await usermodel.create(req.body)
     console.log("saved")
     res.json({"arey":"done"})
