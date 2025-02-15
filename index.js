@@ -25,7 +25,7 @@ const io = socketIO(server,{
 
 
 const pro = async()=>{
-    const keyss = "mongodb+srv://Yogendra:e5EZWizeiQciByly@chat-app.rqizduu.mongodb.net/?retryWrites=true&w=majority"
+    const keyss = "mongodb+srv://121127:OvS7Mup4dymDKWP6@cluster0.rngqz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
     try{await mongoose.connect(keyss).then(()=>{console.log("connected to server")})}catch{console.log("connection denied")}
     app.get("/",(req,res)=>{res.send("yoyo")})
     app.get("/getall",alluser)
